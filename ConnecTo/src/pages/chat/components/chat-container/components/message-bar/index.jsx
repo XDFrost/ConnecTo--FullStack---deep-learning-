@@ -117,7 +117,7 @@ const MessageBar = () => {
           );
           const data = await checkNSFW.data;
           const { score } = data.result[1]
-          if(score > 0.01) {
+          if(score > 0.7) {
             setIsUploading(false);
             toast.error("NSFW content detected!");
             return;

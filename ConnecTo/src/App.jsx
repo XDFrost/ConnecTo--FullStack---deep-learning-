@@ -6,11 +6,12 @@ import { useAppStore } from './store'
 import { useEffect, useState } from "react"
 import { apiClient } from "./lib/api-client.js"
 import { GET_USER_INFO } from "../utils/constants"
+import WelcomePage from "./pages/WelcomePage/index.jsx"
 
 const PrivateRoutes = ({children}) => {
   const {userInfo} = useAppStore();
   const isAuthenticated = !!userInfo;
-  return isAuthenticated ? children : <Navigate to='/auth' />;
+  return isAuthenticated ? children : <Navigate to='/' />;
 };
 
 const AuthRoutes = ({children}) => {
@@ -63,6 +64,12 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          <Route path='/' element={
+            <AuthRoutes>
+              <WelcomePage/>
+            </AuthRoutes>
+          }/>
+
           <Route path='/auth' element={
             <AuthRoutes>
               <Auth/>
@@ -81,7 +88,7 @@ function App() {
             </PrivateRoutes>
           }/>
 
-          <Route path='*' element={<Navigate to='/auth'/>} />
+          <Route path='*' element={<Navigate to='/'/>} />
         </Routes>
       </BrowserRouter>
     </>
