@@ -1,0 +1,21 @@
+.scrollbar-hidden-track {
+    scrollbar-width: thin; /* For Firefox, only the thumb will show */
+    scrollbar-color: #555 transparent; /* Thumb visible, track hidden */
+  }
+  
+  .scrollbar-hidden-track::-webkit-scrollbar {
+    width: 8px; /* Set width for the thumb */
+  }
+  
+  .scrollbar-hidden-track::-webkit-scrollbar-track {
+    background-color: transparent; /* Hide the track */
+  }
+  
+  .scrollbar-hidden-track::-webkit-scrollbar-thumb {
+    background-color: #555; /* Visible thumb */
+    border-radius: 10px; /* Rounded edges for the thumb */
+  }
+  
+  .scrollbar-hidden-track::-webkit-scrollbar-thumb:hover {
+    background-color: #777; /* Slightly brighter thumb on hover */
+  }
